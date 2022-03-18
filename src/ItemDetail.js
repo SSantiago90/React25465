@@ -14,6 +14,7 @@ const ItemDetail = ( {item} ) => {
     const onAdd = (cant) => {
         console.log('Añadir al carrito',cant)
         setSeleccionado(cant);        
+        //llamamos a "addItem" del context pasando la data del item, y la cantidad del ItemCount
         addItem(item, cant); 
     }
 

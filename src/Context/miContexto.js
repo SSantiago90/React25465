@@ -9,11 +9,12 @@ const MiProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([]);   
 
     const addItem = (producto,cantidad) => {     
+        //Copiamos carrito con .splice o operador spread "..."
         const copiaCarrito = [...carrito];
-        const itemAlCarrito = { ...producto, cantidad};     
-       
+        const itemAlCarrito = { ...producto, cantidad};        
+
         if(yaExisteEnCarrito(producto.id)) {            
-            let index = copiaCarrito.findIndex( item =>  item.id === producto.id);
+            let index = //findIndex del item al que necesitamos sumar la cantidad recibida
             copiaCarrito[index].cantidad += cantidad;
             setCarrito(copiaCarrito)
         } 
@@ -24,7 +25,7 @@ const MiProvider = ({ children }) => {
     }
 
     const yaExisteEnCarrito = (id) => {
-        return carrito.some(item =>  item.id === id);
+        //some
     }
 
     const borrarProdDelCarrito = (id) => {
@@ -36,15 +37,21 @@ const MiProvider = ({ children }) => {
     }
 
     const calcCantidad = () =>{
-        let cantidad = 0;
-        carrito.forEach( item => cantidad = item.cantidad);
-        return cantidad;
+        let cantidadTotal = 0;
+        //forEach -> por cada item incrementammos el total
+        return cantidadTotal;
+    }
+
+    const calcPrecioTotal = () =>{
+        // idem función anterior, pero por cada item acumulamos la cantidad x el precio      
+        return;  
     }
 
     const valorDelContexto = {
         carrito: carrito,      
         addItem: addItem,
         calcCantidad: calcCantidad
+        // agregar el resto de las funciones que vayan creando
     }
 
     return (

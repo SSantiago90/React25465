@@ -12,7 +12,7 @@ const Header = () => {
             <Link to="/">
                 <h1 className='header__title'>Mi E-Commerce</h1>
             </Link>
-            <Link to="/carrito">
+            <Link to="/carrito">            
                 <span className="material-icons">
                     shopping_cart
                 </span>
