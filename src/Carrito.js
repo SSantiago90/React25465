@@ -1,10 +1,10 @@
 import { useContext } from "react"
-import { contexto } from "./miContexto"
+import { contexto } from "./Context/miContexto"
 
 
 const Carrito = () => {
 
-    const {carrito,total,setCarrito} = useContext(contexto)
+    const {carrito} = useContext(contexto)
 
     const handleClick = () => {
         

@@ -1,19 +1,21 @@
 import Rate from 'rc-rate';
 import 'rc-rate/assets/index.css';
-import { useState } from 'react';
+import React, { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
 import Contador from './Contador';
 
-const ItemDetail = ({item}) => {
+import { contexto } from './Context/miContexto';
+
+const ItemDetail = ( {item} ) => {
+    const { addItem } = useContext(contexto);
 
     const [seleccionado,setSeleccionado] = useState(false)
 
-    const onAdd = (cantidadSeleccionada) => {
-        console.log('Añadir al carrito',cantidadSeleccionada)
-        setSeleccionado(cantidadSeleccionada)
+    const onAdd = (cant) => {
+        console.log('Añadir al carrito',cant)
+        setSeleccionado(cant);        
+        addItem(item, cant); 
     }
-
-    //useNavegate()
 
     return (
         <article className="itemDetail">
